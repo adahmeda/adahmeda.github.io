@@ -30,8 +30,15 @@
 			renderer.setSize( window.innerWidth, window.innerHeight );
 			document.body.appendChild( renderer.domElement );
 
-			var geometry = new THREE.BoxGeometry( 1, 1, 1 );
+			var geometry = new THREE.BoxGeometry( 3, 3, 3 );
 			var material = new THREE.MeshBasicMaterial( { color: 0xed87bd } );
+			for ( var i = 0; i < 1500; i ++ ) {
+					var object = new THREE.Mesh( geometry, new THREE.MeshLambertMaterial( { color: Math.random() * 0xffffff } ) );
+					object.position.x = Math.random() * 800 - 400;
+					object.position.y = Math.random() * 800 - 400;
+					object.position.z = Math.random() * 800 - 400;
+					scene.add( object );
+			}
 			var cube = new THREE.Mesh( geometry, material );
 			scene.add( cube );
 
